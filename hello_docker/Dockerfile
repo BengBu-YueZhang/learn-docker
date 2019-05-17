@@ -2,7 +2,10 @@
 FROM nginx
 
 # 拷贝前端资源到nginx.conf中root文件夹中
-COPY ./* /var/www/hello_docker
+COPY ./* /var/www/hello_docker/
 
-# 拷贝nginx的配置, 覆盖原有的nginx的配置
-COPY ./nginx/default.conf /etc/nginx/nginx.conf
+# 添加nginx的配置，不是直接覆盖
+COPY ./nginx/hello_docker.conf /etc/nginx/conf.d/
+
+# 重启nginx服务器
+RUN service nginx restart
