@@ -3,7 +3,7 @@ module.exports =  (router) => {
     ctx.response.type = 'json'
     ctx.response.status = 200
     ctx.response.body = {
-      msg: 'Hello Docker'
+      msg: 'Hello Vue'
     }
   })
 }

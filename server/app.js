@@ -2,26 +2,23 @@ const Koa = require('koa')
 const Router = require('koa-router')
 const app = new Koa()
 const router = new Router()
-
-const views = require('koa-views')
-const co = require('co')
-const convert = require('koa-convert')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
-const debug = require('debug')('koa2:server')
-const path = require('path')
-
+const cors = require('@koa/cors')
 const config = require('./config')
 const routes = require('./routes')
-
-const port = process.env.PORT || config.port
 
 // error handler
 onerror(app)
 
-// middlewares
+app.use(cors({
+  origin: '*',
+  credentials: true,
+  methods: ['PUT', 'POST', 'GET', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Content-Length', 'Authorization', 'Accept', 'X-Requested-With', 'x-access-token']
+}))
 app.use(bodyparser())
   .use(json())
   .use(logger())

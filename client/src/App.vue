@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld :msg="msg"/>
   </div>
 </template>
 
@@ -11,11 +11,20 @@ import axios from 'axios'
 
 export default {
   name: 'app',
+
   components: {
     HelloWorld
   },
 
-  created () {
+  data () {
+    return {
+      msg: ''
+    }
+  },
+
+  async created () {
+   const { data: { msg } } =  await axios.get('http://127.0.0.1:3000')
+   this.msg = msg
   }
 }
 </script>
