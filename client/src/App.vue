@@ -23,7 +23,7 @@ export default {
   },
 
   async created () {
-   const { data: { msg } } =  await axios.get('http://127.0.0.1:3000')
+   const { data: { msg } } =  await axios.get('http://127.0.0.1:3000/api')
    this.msg = msg
   }
 }
