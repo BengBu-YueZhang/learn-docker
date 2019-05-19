@@ -1,9 +1,9 @@
 module.exports =  (router) => {
-  router.get('/welcome', async function (ctx, next) {
-    ctx.state = {
-      title: 'koa2 title'
-    };
-
-    await ctx.render('welcome', {title: ctx.state});
+  router.get('/', async function (ctx, next) {
+    ctx.response.type = 'json'
+    ctx.response.status = 200
+    ctx.response.body = {
+      msg: 'Hello Docker'
+    }
   })
 }
