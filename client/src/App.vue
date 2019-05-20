@@ -23,7 +23,7 @@ export default {
   },
 
   async created () {
-   const { data: { msg } } =  await axios.get('http://172.20.0.2:3000')
+   const { data: { msg } } =  await axios.get('http://api.bengbuzhangyue.xyz/api/')
    this.msg = msg
   }
 }
