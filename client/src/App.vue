@@ -23,7 +23,7 @@ export default {
   },
 
   async created () {
-   const { data: { msg } } =  await axios.get('http://apihellodockernet.bengbuzhangyue.xyz/api')
+   const { data: { msg } } =  await axios.get('http://apihellodockernet.bengbuzhangyue.xyz')
    this.msg = msg
   }
 }
